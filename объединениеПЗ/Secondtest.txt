@@ -1,0 +1,15 @@
+temporal_object_t 0 
+Программист 2 язык языки_программирования предмет канцтовары 
+temporal_object_t 1 Секретарь 1 язык языки_программирования 
+temporal_object_t 2 Начальник 1 язык языки_программирования 
+temporal_interval_t 0 Интервал_1 
+condition_attr_value_const_t = 2 0 python 
+condition_attr_value_const_t = 0 0 python 
+temporal_rule_t 0 Правило_1 
+event_interval_condition_t 0 b 0  
+action_string_t 1 0 = python  
+temporal_event_t 0 Событие_1 
+condition_attr_value_const_t = 2 0 python  
+temporal_event_t 1 Событие_2 
+condition_attr_value_const_t = 0 0 python  
+types 2 канцтовары 2 2 карандаш ручка языки_программирования 3 1 python 

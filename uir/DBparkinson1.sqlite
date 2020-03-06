@@ -1,0 +1,47 @@
+BEGIN TRANSACTION;
+CREATE TABLE IF NOT EXISTS `objects` (
+	`id`	TEXT,
+	`Ahorfa`	TEXT,
+	`Aver`	TEXT,
+	`Ahorl`	TEXT,
+	`Thorfa`	TEXT,
+	`Tver`	TEXT,
+	`Thorl`	TEXT,
+	`Trhorfa`	TEXT,
+	`Trver`	TEXT,
+	`Trhorl`	TEXT,
+	`time`	TEXT
+);
+INSERT INTO `objects` VALUES ('1','70','941','207','345','777','131','165','1142','58','1');
+INSERT INTO `objects` VALUES ('1','-151','990','79','300','898','151','77','971','126','2');
+INSERT INTO `objects` VALUES ('1','-242','960','376','36','953','333','38','876','87','3');
+INSERT INTO `objects` VALUES ('1','-313','921','663','136','953','393','58','923','38','4');
+INSERT INTO `objects` VALUES ('1','-303','1009','633','245','907','414','135','1047','58','5');
+INSERT INTO `objects` VALUES ('1','-171','1127','623','527','962','252','97','1076','9','6');
+INSERT INTO `objects` VALUES ('1','151','1303','633','863','907','141','-300','1152','-145','7');
+INSERT INTO `objects` VALUES ('2','-101','1000','39','45','907','-474','737','1571','87','1');
+INSERT INTO `objects` VALUES ('2','-282','921','9','45','824','-383','466','1190','-38','2');
+INSERT INTO `objects` VALUES ('2','-252','960','79','109','861','-222','135','923','58','3');
+INSERT INTO `objects` VALUES ('2','-353','1009','148','227','879','90','-58','847','29','4');
+INSERT INTO `objects` VALUES ('2','50','1098','247','409','935','262','106','638','106','5');
+INSERT INTO `objects` VALUES ('2','191','990','316','418','907','252','262','580','145','6');
+INSERT INTO `objects` VALUES ('2','-141','1000','207','100','962','212','155','723','310','7');
+CREATE TABLE IF NOT EXISTS `classes` (
+	`id`	TEXT,
+	`class`	TEXT
+);
+INSERT INTO `classes` VALUES ('1','1');
+INSERT INTO `classes` VALUES ('1','1');
+INSERT INTO `classes` VALUES ('1','1');
+INSERT INTO `classes` VALUES ('1','1');
+INSERT INTO `classes` VALUES ('1','2');
+INSERT INTO `classes` VALUES ('1','2');
+INSERT INTO `classes` VALUES ('1','2');
+INSERT INTO `classes` VALUES ('2','1');
+INSERT INTO `classes` VALUES ('2','1');
+INSERT INTO `classes` VALUES ('2','1');
+INSERT INTO `classes` VALUES ('2','2');
+INSERT INTO `classes` VALUES ('2','2');
+INSERT INTO `classes` VALUES ('2','2');
+INSERT INTO `classes` VALUES ('2','2');
+COMMIT;

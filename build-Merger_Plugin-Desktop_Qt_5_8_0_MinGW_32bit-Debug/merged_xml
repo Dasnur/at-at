@@ -1,0 +1,363 @@
+<types>
+<type id="ТИП1" meta="number" desc="number">
+<from>0</from>
+<to>100000</to>
+</type>
+</types>
+<classes>
+<class id="Пациент" desc="Пациент">
+<properties>
+<property id="Диагноз" type="ТИП1" desc="Диагноз" source="inferred" />
+<property id="Температура" type="ТИП1" desc="Температура" source="inferred" />
+<property id="Время" type="ТИП1" desc="Время" source="inferred" />
+</properties>
+</class>
+<class id="Главный_объект" desc="Главный_объект">
+<properties>
+<property id="температура" type="ТИП1" desc="температура" source="inferred" />
+<property id="наличие_кашля" type="ТИП1" desc="наличие_кашля" source="inferred" />
+</properties>
+</class>
+<class id="Таймер" desc="Таймер">
+<properties>
+<property id="такт" type="ТИП1" desc="такт" source="inferred" />
+</properties>
+</class>
+<class id="Счётчик" desc="Счётчик">
+<properties>
+<property id="Голоса_за_Здоров" type="ТИП1" desc="Голоса_за_Здоров" source="inferred" />
+<property id="Голоса_за_Болен" type="ТИП1" desc="Голоса_за_Болен" source="inferred" />
+<property id="Результат" type="ТИП0" desc="Результат" source="inferred" />
+</properties>
+</class>
+<class id="world" desc="Класс верхнего уровня, включающий в себя экземпляры других классов и общие правила">
+<properties>
+<property id="Пациент" type="Пациент" source="none" create="true" desc="Пациент"/>
+<property id="Главный_объект" type="Главный_объект" source="none" create="true" desc="Главный_объект"/>
+<property id="Таймер" type="Таймер" source="none" create="true" desc="Таймер"/>
+<property id="Счётчик" type="Счётчик" source="none" create="true" desc="Счётчик"/>
+</properties>
+<rules>
+<rule id="t0" meta="simple" desc="Т-правило">
+<condition>
+<and>
+<EvIntRel Value="f">
+<Event Name="Текущий_такт_1_ПЗ_2"/>
+<Interval Name="Отрицательный_интервал_22193120_0_ПЗ_2"/>
+</EvIntRel>
+<EvRel Value"a">
+<Event Name="Текущий_такт_1_ПЗ_2"/>
+<Event Name="Текущий_такт_0_ПЗ_2"/>
+</EvRel>
+</and>
+</condition>
+<action>
+<assign>
+<ref id="Счётчик">
+<ref id="Голоса_за_Здоров"/>
+</ref>
+<sub>
+<ref id="Счётчик">
+<ref id="Голоса_за_Здоров"/>
+</ref>
+<value>
+-1
+</value>
+</sub>
+<with belief="50" probability="100" accuracy="0"/>
+</assign>
+</action>
+</rule>
+<rule id="t1" meta="simple" desc="Т-правило">
+<condition>
+<and>
+<EvIntRel Value="f">
+<Event Name="Текущий_такт_0_ПЗ_2"/>
+<Interval Name="Отрицательный_интервал_22193120_1_ПЗ_2"/>
+</EvIntRel>
+<EvRel Value"a">
+<Event Name="Текущий_такт_0_ПЗ_2"/>
+<Event Name="Текущий_такт_1_ПЗ_2"/>
+</EvRel>
+</and>
+</condition>
+<action>
+<assign>
+<ref id="Счётчик">
+<ref id="Голоса_за_Здоров"/>
+</ref>
+<sub>
+<ref id="Счётчик">
+<ref id="Голоса_за_Здоров"/>
+</ref>
+<value>
+-1
+</value>
+</sub>
+<with belief="50" probability="100" accuracy="0"/>
+</assign>
+</action>
+</rule>
+<rule id="t2" meta="simple" desc="Т-правило">
+<condition>
+<and>
+<EvIntRel Value="f">
+<Event Name="Текущий_такт_0_ПЗ_2"/>
+<Interval Name="Положительный_интервал_22193120_1_ПЗ_2"/>
+</EvIntRel>
+<EvRel Value"a">
+<Event Name="Текущий_такт_0_ПЗ_2"/>
+<Event Name="Текущий_такт_1_ПЗ_2"/>
+</EvRel>
+</and>
+</condition>
+<action>
+<assign>
+<ref id="Счётчик">
+<ref id="Голоса_за_Болен"/>
+</ref>
+<sub>
+<ref id="Счётчик">
+<ref id="Голоса_за_Болен"/>
+</ref>
+<value>
+-1
+</value>
+</sub>
+<with belief="50" probability="100" accuracy="0"/>
+</assign>
+</action>
+</rule>
+<rule id="b3" meta="simple" desc="В-правило">
+<condition>
+<and>
+<eq>
+<sub>
+<ref id="Счётчик">
+<ref id="Голоса_за_Здоров"/>
+</ref>
+<sub>
+<value>
+0
+</value>
+<ref id="Счётчик">
+<ref id="Голоса_за_Болен"/>
+</ref>
+</sub>
+</sub>
+<value>
+1
+
+</value>
+</eq>
+<ge>
+<ref id="Счётчик">
+<ref id="Голоса_за_Здоров"/>
+</ref>
+<ref id="Счётчик">
+<ref id="Голоса_за_Болен"/>
+</ref>
+</ge>
+</and>
+</condition>
+<action>
+<assign>
+<ref id="Счётчик">
+<ref id="Результат"/>
+</ref><value>Здоров</value>
+<with belief="50" probability="100" accuracy="0"/>
+</assign>
+</action>
+</rule>
+<rule id="b4" meta="simple" desc="В-правило">
+<condition>
+<and>
+<eq>
+<sub>
+<ref id="Счётчик">
+<ref id="Голоса_за_Здоров"/>
+</ref>
+<sub>
+<value>
+0
+</value>
+<ref id="Счётчик">
+<ref id="Голоса_за_Болен"/>
+</ref>
+</sub>
+</sub>
+<value>
+1
+
+</value>
+</eq>
+<ge>
+<ref id="Счётчик">
+<ref id="Голоса_за_Болен"/>
+</ref>
+<ref id="Счётчик">
+<ref id="Голоса_за_Здоров"/>
+</ref>
+</ge>
+</and>
+</condition>
+<action>
+<assign>
+<ref id="Счётчик">
+<ref id="Результат"/>
+</ref><value>Болен</value>
+<with belief="50" probability="100" accuracy="0"/>
+</assign>
+</action>
+</rule>
+</rules>
+</class>
+</classes>
+
+
+
+<IntervalsAndEvents>
+<Intervals>
+<Interval Name="Интервал1_ПЗ_1">
+<Open>
+<EqOp Value="eq">
+<Attribute Value="Пациент."/>
+<String Value="370"/>
+</EqOp>
+</Open>
+<Close>
+<EqOp Value="eq">
+<Attribute Value="Пациент.Температура"/>
+<String Value="390"/>
+</EqOp>
+</Close>
+</Interval>
+<Interval Name="Интервал2_ПЗ_1">
+<Open>
+<EqOp Value="eq">
+<Attribute Value="Пациент.Время"/>
+<String Value="со второй "/>
+</EqOp>
+</Open>
+<Close>
+<EqOp Value="eq">
+<Attribute Value="Пациент.Время"/>
+<String Value="по десятую минуту "/>
+</EqOp>
+</Close>
+</Interval>
+<Interval Name="Интервал3_ПЗ_1">
+<Open>
+<EqOp Value="eq">
+<Attribute Value="Пациент.Время"/>
+<String Value="с понедельника"/>
+</EqOp>
+</Open>
+<Close>
+<EqOp Value="eq">
+<Attribute Value="Пациент.Время"/>
+<String Value="по пятницу"/>
+</EqOp>
+</Close>
+</Interval>
+<Interval Name="Положительный_интервал_22193120_0_ПЗ_2">
+<Open>
+<LogOp Value="AND">
+<EqOp Value="ge">
+<Attribute Value="Главный_объект.температура"/>
+<String Value="370"/>
+</EqOp>
+<EqOp Value="eq">
+<Attribute Value="Таймер.такт"/>
+<String Value="0"/>
+</EqOp>
+</LogOp>
+</Open>
+<Close>
+<EqOp Value="eq">
+<Attribute Value="Таймер.такт"/>
+<String Value="1"/>
+</EqOp>
+</Close>
+</Interval>
+<Interval Name="Отрицательный_интервал_22193120_0_ПЗ_2">
+<Open>
+<LogOp Value="AND">
+<EqOp Value="lt">
+<Attribute Value="Главный_объект.температура"/>
+<String Value="370"/>
+</EqOp>
+<EqOp Value="eq">
+<Attribute Value="Таймер.такт"/>
+<String Value="0"/>
+</EqOp>
+</LogOp>
+</Open>
+<Close>
+<EqOp Value="eq">
+<Attribute Value="Таймер.такт"/>
+<String Value="1"/>
+</EqOp>
+</Close>
+</Interval>
+<Interval Name="Положительный_интервал_22193120_1_ПЗ_2">
+<Open>
+<LogOp Value="AND">
+<EqOp Value="ge">
+<Attribute Value="Главный_объект.температура"/>
+<String Value="370"/>
+</EqOp>
+<EqOp Value="eq">
+<Attribute Value="Таймер.такт"/>
+<String Value="1"/>
+</EqOp>
+</LogOp>
+</Open>
+<Close>
+<EqOp Value="eq">
+<Attribute Value="Таймер.такт"/>
+<String Value="0"/>
+</EqOp>
+</Close>
+</Interval>
+<Interval Name="Отрицательный_интервал_22193120_1_ПЗ_2">
+<Open>
+<LogOp Value="AND">
+<EqOp Value="lt">
+<Attribute Value="Главный_объект.температура"/>
+<String Value="370"/>
+</EqOp>
+<EqOp Value="eq">
+<Attribute Value="Таймер.такт"/>
+<String Value="1"/>
+</EqOp>
+</LogOp>
+</Open>
+<Close>
+<EqOp Value="eq">
+<Attribute Value="Таймер.такт"/>
+<String Value="0"/>
+</EqOp>
+</Close>
+</Interval>
+</Intervals>
+<Events>
+<Event Name="Текущий_такт_0_ПЗ_2">
+<Formula>
+<EqOp Value="eq">
+<Attribute Value="Таймер.такт"/>
+<String Value="0"/>
+</EqOp>
+</Formula>
+</Event>
+<Event Name="Текущий_такт_1_ПЗ_2">
+<Formula>
+<EqOp Value="eq">
+<Attribute Value="Таймер.такт"/>
+<String Value="1"/>
+</EqOp>
+</Formula>
+</Event>
+</Events>
+</IntervalsAndEvents>
+

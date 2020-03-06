@@ -1,0 +1,3 @@
+[
+  {property: температура, time: 2, val: 383, left: {is_leaf: true, node_class: Здоров}, right: {is_leaf: true, node_class: Болен}}
+]

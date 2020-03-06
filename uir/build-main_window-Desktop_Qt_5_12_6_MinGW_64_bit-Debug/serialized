@@ -1,0 +1,12 @@
+[
+  {property: температура, time: 0, val: 371, left: {is_leaf: true, node_class: Здоров}, right: {is_leaf: true, node_class: Болен}},
+  {property: температура, time: 0, val: 371, left: {is_leaf: true, node_class: Здоров}, right: {is_leaf: true, node_class: Болен}},
+  {property: температура, time: 0, val: 370, left: {is_leaf: true, node_class: Здоров}, right: {is_leaf: true, node_class: Болен}},
+  {property: наличие_кашля, time: 0, val: 1, left: {is_leaf: true, node_class: Здоров}, right: {is_leaf: true, node_class: Болен}},
+  {property: температура, time: 1, val: 373, left: {is_leaf: true, node_class: Здоров}, right: {is_leaf: true, node_class: Болен}},
+  {property: температура, time: 1, val: 373, left: {is_leaf: true, node_class: Здоров}, right: {is_leaf: true, node_class: Болен}},
+  {property: температура, time: 1, val: 373, left: {is_leaf: true, node_class: Здоров}, right: {is_leaf: true, node_class: Болен}},
+  {property: температура, time: 0, val: 370, left: {is_leaf: true, node_class: Здоров}, right: {is_leaf: true, node_class: Болен}},
+  {property: температура, time: 1, val: 373, left: {is_leaf: true, node_class: Здоров}, right: {is_leaf: true, node_class: Болен}},
+  {property: температура, time: 0, val: 370, left: {is_leaf: true, node_class: Здоров}, right: {is_leaf: true, node_class: Болен}}
+]

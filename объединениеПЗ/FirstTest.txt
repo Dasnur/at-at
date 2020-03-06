@@ -1,0 +1,21 @@
+temporal_object_t 0 Программист 2 язык языки_программирования предмет канцтовары 
+temporal_object_t 1 Секретарь 2 язык языки_программирования предмет канцтовары 
+temporal_object_t 2 Начальник 1 предмет канцтовары 
+temporal_interval_t 0 Интервал_1 
+condition_attr_value_const_t = 2 0 линейка 
+condition_attr_value_const_t = 0 0 python 
+temporal_rule_t 0 Правило_1 
+event_event_condition_t 0 a 2  
+complex_action_t 2 action_int_t 2 0 = 10 
+action_string_t 0 0 = python  
+temporal_event_t 0 Событие_1 
+true_condition_t   
+temporal_event_t 1 Событие_2 
+condition_sum_equal_const_t 2 0 0 1 1 пусто  
+temporal_event_t 2 Событие_3 
+complex_condition_t & 2 
+condition_attr_value_const_t = 2 0 ручка 
+condition_attr_value_attr_value_t = 2 0 0 1    
+temporal_event_t 3 Событие_4 
+condition_attr_value_const_t = 0 0 python  
+types 2 канцтовары 2 3 карандаш линейка ручка языки_программирования 3 2 python с++ 

@@ -1,0 +1,25 @@
+temporal_object_t 0 Главный_объект 2 температура числовой наличие_кашля числовой 
+temporal_object_t 1 Таймер 1 такт числовой temporal_object_t 2 Счётчик 3 Голоса_за_Здоров числовой 
+Голоса_за_Болен числовой Результат символьный temporal_interval_t 0 Положительный_интервал_22193120_0 
+complex_condition_t & 2 condition_attr_value_const_t >= 0 0 370 condition_attr_value_const_t = 1 0 0  
+condition_attr_value_const_t = 1 0 1 temporal_interval_t 1 Отрицательный_интервал_22193120_0 
+complex_condition_t & 2 condition_attr_value_const_t < 0 0 370 condition_attr_value_const_t = 1 0 0  
+condition_attr_value_const_t = 1 0 1 temporal_interval_t 2 Положительный_интервал_22193120_1 
+complex_condition_t & 2 condition_attr_value_const_t >= 0 0 370 condition_attr_value_const_t = 1 0 1  
+condition_attr_value_const_t = 1 0 0 temporal_interval_t 3 Отрицательный_интервал_22193120_1 
+complex_condition_t & 2 condition_attr_value_const_t < 0 0 370 condition_attr_value_const_t = 1 0 1  
+condition_attr_value_const_t = 1 0 0 temporal_rule_t 0 Правило_454781480_0 complex_condition_t & 2 
+event_interval_condition_t 1 f 1  event_event_condition_t 1 a 0   action_int_t 2 0 += 1  t
+emporal_rule_t 1 Правило_454782416_0 
+complex_condition_t & 2 event_interval_condition_t 1 f 0  
+event_event_condition_t 1 a 0   action_int_t 2 1 += 1  
+temporal_rule_t 2 Правило_454781480_1 
+complex_condition_t & 2 event_interval_condition_t 0 f 3  
+event_event_condition_t 0 a 1   action_int_t 2 0 += 1  
+temporal_rule_t 3 Правило_454782416_1 
+complex_condition_t & 2 event_interval_condition_t 0 f 2  event_event_condition_t 0 a 1   action_int_t 2 1 += 1  
+temporal_rule_t 4 Правило_Здоров complex_condition_t & 2 condition_sum_equal_const_t 2 2 0 2 1 1 condition_attr_value_attr_value_t >= 2 0 2 1   
+complex_action_t 1 action_string_t 2 2 = Здоров  
+temporal_rule_t 5 Правило_Болен complex_condition_t & 2 condition_sum_equal_const_t 2 2 0 2 1 1 condition_attr_value_attr_value_t >= 2 1 2 0   
+complex_action_t 1 action_string_t 2 2 = Болен  temporal_event_t 0 Текущий_такт_0 condition_attr_value_const_t = 1 0 0  
+temporal_event_t 1 Текущий_такт_1 condition_attr_value_const_t = 1 0 1  types 1 символьный 2 3 Болен Здоров Пусто 
